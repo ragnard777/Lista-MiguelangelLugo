@@ -1,0 +1,17 @@
+<!-- <form action="">
+  <input [(ngModel)]="usuario.nombre" placeholder="nombre" type="text" name="nombre">
+  <input [(ngModel)]="usuario.apellido" placeholder="apellido" type="text" name="apellido">
+  <button (click)="guardar($event)" type="button">Guardar</button>
+</form> -->
+<br>
+
+<h2>Agregar nuevo alumno :</h2>
+<input [(ngModel)]="alumno.nombre" name="nombre" type="text">
+<button (click)="agregarAlumno()" type="button">Agregar</button>
+
+
+
+<div class="contenedor" *ngFor="let a of alumnos; let i = index">
+  <p>{{i +" - "}}{{ a | uppercase}}</p>
+  <h3 *ngIf="a === 'miguel'"></h3>
+</div>
