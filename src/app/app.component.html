@@ -10,7 +10,7 @@
 <button (click)="guardar()" type="button">Agregar</button>
 <div *ngIf="soyJosue; else noSoyJosue">{{bienvenido}}</div>
 <ng-template #noSoyJosue>No soy Josue</ng-template>
-
+<div *ngIf="sinAlumno"> <span [ngClass]="sinAlumno?'alumno-invalido':''">{{textoAlumnoVacio}}</span></div>
 
 
 <div class="contenedor" *ngFor="let a of alumnos; let i = index">

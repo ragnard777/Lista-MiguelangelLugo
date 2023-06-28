@@ -11,6 +11,8 @@ export class AppComponent {
   soyJosue = false;
   bienvenido = "Bienvenido Josue esta es tu casa"
   status = 2;
+  sinAlumno = false;
+  textoAlumnoVacio = "Desde el NgClass tiene que introducir un alumno valido!";
 
   usuario = {
     nombre:"",
@@ -25,9 +27,8 @@ export class AppComponent {
 
 
   guardar():void{
-    console.log("variable nombre ", this.usuario.nombre);
-    console.log("variable apellido ", this.usuario.apellido);
-    this.validarAlumnoAMostrar();
+    console.log("variable nombre :", this.alumno.nombre);
+    this.validarCampo();
   }
 
   validarAlumnoAMostrar(){
@@ -44,5 +45,21 @@ export class AppComponent {
     this.soyJosue = true;
     this.status = 1;
   }
+  
+  validarCampo(){
+    if(this.validarCampoVacio()){
+      this.sinAlumno = true;
+    }else{
+      this.sinAlumno = false;
+      this.validarAlumnoAMostrar();
+    }
+  }
 
+  validarCampoVacio(){
+    if(this.alumno.nombre == ""){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

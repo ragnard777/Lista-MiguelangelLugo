@@ -2,3 +2,8 @@
     text-align: center;
     text-decoration: underline;
 }
+
+.alumno-invalido {
+background-color: red;
+color: white;
+}
