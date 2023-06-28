@@ -6,59 +6,61 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
   title = 'lista-MiguelangelLugo';
   soyJosue = false;
-  bienvenido = "Bienvenido Josue esta es tu casa"
+  bienvenido = "Bienvenido Josue esta es tu casa";
   status = 2;
   sinAlumno = false;
   textoAlumnoVacio = "Desde el NgClass tiene que introducir un alumno valido!";
 
   usuario = {
-    nombre:"",
+    nombre: "",
     apellido: ""
   }
 
   alumno = {
-    nombre:""
+    nombre: ""
   }
 
   alumnos = ['Maria', 'Juana', 'Miguel', 'Jose', 'Jesus', 'Nathalie'];
 
 
-  guardar():void{
+  guardar(): void {
     console.log("variable nombre :", this.alumno.nombre);
     this.validarCampo();
   }
 
-  validarAlumnoAMostrar(){
-    this.alumno.nombre.toLocaleLowerCase()=='josue'?this.setearValores():this.agregarAlumno();
+  validarAlumnoAMostrar() {
+    this.alumno.nombre.toLocaleLowerCase() == 'josue' ? this.setearValores() : this.agregarAlumno();
   }
 
-  agregarAlumno():void{
+  agregarAlumno(): void {
     this.soyJosue = false;
     this.status = 2;
     this.alumnos.push(this.alumno.nombre);
   }
 
-  setearValores(){
+  setearValores() {
     this.soyJosue = true;
     this.status = 1;
   }
-  
-  validarCampo(){
-    if(this.validarCampoVacio()){
+
+  validarCampo() {
+    if (this.validarCampoVacio()) {
+      this.soyJosue = false;
+      this.status = 2;
       this.sinAlumno = true;
-    }else{
+    } else {
       this.sinAlumno = false;
       this.validarAlumnoAMostrar();
     }
   }
 
-  validarCampoVacio(){
-    if(this.alumno.nombre == ""){
+  validarCampoVacio() {
+    if (this.alumno.nombre == "") {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
