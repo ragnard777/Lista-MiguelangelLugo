@@ -8,8 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   
   title = 'lista-MiguelangelLugo';
-
-
+  soyJosue = false;
+  bienvenido = "Bienvenido Josue esta es tu casa"
+  status = 2;
 
   usuario = {
     nombre:"",
@@ -23,15 +24,25 @@ export class AppComponent {
   alumnos = ['Maria', 'Juana', 'Miguel', 'Jose', 'Jesus', 'Nathalie'];
 
 
-  guardar(event:MouseEvent):void{
-    console.log("metodo guardar - variable event ", event);
+  guardar():void{
     console.log("variable nombre ", this.usuario.nombre);
     console.log("variable apellido ", this.usuario.apellido);
+    this.validarAlumnoAMostrar();
+  }
+
+  validarAlumnoAMostrar(){
+    this.alumno.nombre.toLocaleLowerCase()=='josue'?this.setearValores():this.agregarAlumno();
   }
 
   agregarAlumno():void{
+    this.soyJosue = false;
+    this.status = 2;
     this.alumnos.push(this.alumno.nombre);
   }
 
+  setearValores(){
+    this.soyJosue = true;
+    this.status = 1;
+  }
 
 }

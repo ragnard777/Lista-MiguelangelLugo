@@ -7,11 +7,21 @@
 
 <h2>Agregar nuevo alumno :</h2>
 <input [(ngModel)]="alumno.nombre" name="nombre" type="text">
-<button (click)="agregarAlumno()" type="button">Agregar</button>
+<button (click)="guardar()" type="button">Agregar</button>
+<div *ngIf="soyJosue; else noSoyJosue">{{bienvenido}}</div>
+<ng-template #noSoyJosue>No soy Josue</ng-template>
 
 
 
 <div class="contenedor" *ngFor="let a of alumnos; let i = index">
   <p>{{i +" - "}}{{ a | uppercase}}</p>
-  <h3 *ngIf="a === 'miguel'"></h3>
+</div>
+
+<div [ngSwitch]="status">
+  <div *ngSwitchCase="1">
+   Con Josue en Switch
+  </div>
+  <div *ngSwitchDefault="2">
+    Sin Josue en Switch
+  </div>
 </div>
